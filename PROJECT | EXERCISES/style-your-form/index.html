@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us Form</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+    <div class="form">
+    <h1>Contact Us</h1>
+    <form action="/submit-form" method="get">
+      <input type="text" name="fname" id="fname" placeholder="Name" required />
+      <input type="email" name="email" id="email" placeholder="Email" required />
+      <input
+        type="tel"
+        pattern="\d{3}-\d{3}-\d{4}"
+        name="pnumber"
+        id="pnumber"
+        placeholder="Phone Number"
+        required
+      />
+      <textarea name="tarea" rows="10" id="tarea" placeholder="Message" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  </body>
+</html>
