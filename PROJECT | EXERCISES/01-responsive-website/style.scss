@@ -12,6 +12,7 @@ html, body{
 
 html{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: wheat;
 
 }
 
@@ -19,7 +20,7 @@ main{
     width: 100%;
 }
 
-section{
+.view-1{
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -35,7 +36,6 @@ section{
         font-size: 3.7rem;
         text-align: center;
         font-weight: 100;
-        color: wheat;
     }
     p{
         font-weight: 100;
@@ -44,6 +44,92 @@ section{
         font-size: 1.2rem;
         margin: 0.9rem 0rem;
         opacity: 0.6;
-        color: wheat;
+
+        br{
+            display: none;
+        }
+    }
+}
+
+.view-2{
+    width: 100%;
+    padding: 4rem 3rem;
+    display: flex;
+    justify-content: center;
+    .marque{
+        position: relative;
+        display: flex;
+        width: 50%;
+        overflow: hidden;
+
+        &::after{
+            content: "";
+            height: 100%;
+            width: 50%;
+            // background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: linear-gradient(to right, #0e0e0e, transparent);
+        }
+        // &::after{
+        //     content: "";
+        //     height: 100%;
+        //     width: 50%;
+        //     background-color: red;
+        //     position: absolute;
+        //     top: 0;
+        //     left: 100;
+        //     background-image: linear-gradient(to left, #0e0e0e, transparent);
+        // }
+        .text{
+            display: flex;
+            gap: 3rem;
+            animation: marque 10s linear infinite both;
+            padding: 0 ;
+            p{
+                font-size: 2rem;
+                font-weight: 300;
+            }
+        }
+    }
+}
+
+
+@keyframes marque {
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+
+@media (min-width:1020px) {
+
+    html{
+        font-size: clamp(16px, 1vw , 20px);
+    }
+
+    .view-1{
+        img{
+            width: 28%;
+        }
+
+        h1{
+            font-size: 8.5rem;
+        }
+        p{
+            font-size: 1.5rem;
+            br{
+                display: block;
+            }
+        }
+    }
+
+    .view-2{
+        .marque{
+            width: 50%;
+        }
     }
 }
