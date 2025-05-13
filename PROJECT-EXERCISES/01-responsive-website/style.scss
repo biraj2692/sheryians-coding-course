@@ -95,6 +95,37 @@ main{
     }
 }
 
+.view-3{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    aspect-ratio: 1/1;
+    padding: 2rem 2rem;
+    .cont{
+        border: wheat 1px solid;
+        padding: 2.5rem;
+        background-color: rgba(24, 23, 22, 1);
+
+        span{
+            opacity: 0.5;
+        }
+        
+        h1{
+            padding: 0.5rem 0;
+            text-transform: capitalize;
+            font-weight: 200;
+        }
+        p{
+            text-transform: capitalize;
+            padding-bottom:2rem ;
+        }
+        a{
+            text-decoration: none;
+            color: wheat;
+        }
+    }
+}
 
 @keyframes marque {
     0%{
@@ -131,5 +162,9 @@ main{
         .marque{
             width: 50%;
         }
+    }
+
+    .view-3{
+        flex-direction: row;
     }
 }

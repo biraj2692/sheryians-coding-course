@@ -80,6 +80,36 @@ main {
   font-weight: 300;
 }
 
+.view-3 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  aspect-ratio: 1/1;
+  padding: 2rem 2rem;
+}
+.view-3 .cont {
+  border: wheat 1px solid;
+  padding: 2.5rem;
+  background-color: rgb(24, 23, 22);
+}
+.view-3 .cont span {
+  opacity: 0.5;
+}
+.view-3 .cont h1 {
+  padding: 0.5rem 0;
+  text-transform: capitalize;
+  font-weight: 200;
+}
+.view-3 .cont p {
+  text-transform: capitalize;
+  padding-bottom: 2rem;
+}
+.view-3 .cont a {
+  text-decoration: none;
+  color: wheat;
+}
+
 @keyframes marque {
   0% {
     transform: translateX(0);
@@ -106,5 +136,8 @@ main {
   }
   .view-2 .marque {
     width: 50%;
+  }
+  .view-3 {
+    flex-direction: row;
   }
 }/*# sourceMappingURL=style.css.map */
