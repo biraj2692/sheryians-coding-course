@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+
+.box{
+    height: 200px;
+    width: 500px;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin: 20px auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+   
+
+}
+
+.slider{
+    height: 50px;
+    background-color: rgb(97, 97, 97);
+    border-radius: 10px;
+}
+.growth{
+    background-color: rgb(0, 191, 0);
+    border-radius: 10px;
+    height: 100%;
+    width: 0%;
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.text, .percent{
+    font-size: larger;
+}
+
+button{
+    align-self: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: aqua;
+    width: max-content;
+}
