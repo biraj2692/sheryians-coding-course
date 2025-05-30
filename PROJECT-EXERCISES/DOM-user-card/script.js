@@ -39,7 +39,7 @@ let users = [
 let main = document.querySelector(".main");
 function addCard() {
     let sum = ''
-users.forEach(function(element,idx){
+    users.forEach(function(element,idx){
    sum += `<div class="card">
             <div class="first">
                 <img src="${element.img}" alt="">
