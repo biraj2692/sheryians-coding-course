@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Mini Project</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans">
+    <div class="min-h-screen flex items-center justify-center px-4">
+      <div class="bg-gray-800 shadow-xl rounded-2xl w-full max-w-3xl p-8">
+        <h1 class="text-3xl font-bold text-center text-white mb-10">GitHub User Lookup</h1>
+
+        <!-- Search UI -->
+        <div class="flex flex-col sm:flex-row items-center gap-4 mb-8">
+          <input 
+            type="text" 
+            placeholder="Enter GitHub username..."
+            class="usernameInp w-full sm:flex-1 px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition placeholder-gray-400 text-white"
+          />
+          <button 
+            class="search bg-blue-600 text-white font-semibold px-6 py-3 rounded-xl hover:bg-blue-700 transition"
+          >
+            Search
+          </button>
+        </div>
+
+        <!-- User Data Display Placeholder -->
+        <div class="border-t border-gray-700 pt-6">
+            <!-- Example user card -->
+            <div class="card">
+              
+            </div>
+          <div class="text-center text-gray-500">User data will appear here after search.</div>
+
+
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
