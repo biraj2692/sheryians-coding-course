@@ -5,18 +5,23 @@ import { recipecontext } from '../context/RecipeContext';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
+
 const Create = () => {
   const navigate = useNavigate()
   const {data, setData}  = useContext(recipecontext);
   const {register, handleSubmit, reset} = useForm();
-  const submitHandler = (recipe) =>{
-    recipe.id = nanoid
- 
-    setData([...data, recipe]);
-    toast.success('New Recipe Created!')
-    navigate(`/recipes/details/${recipe.id}`)
-    reset();
-  }
+  
+const submitHandler = (recipe) => {
+  recipe.id = nanoid(); 
+  const copyData = [...data];
+  copyData.push(recipe);
+  setData(copyData);
+  localStorage.setItem("recipe", JSON.stringify(copyData)); // Fixed this line
+  toast.success('New Recipe Created!')
+  navigate(`/recipes/details/${recipe.id}`)
+  reset();
+}
+
 
   return (
     <form className='my-10 flex flex-col' onSubmit={handleSubmit(submitHandler)}>

@@ -16,6 +16,9 @@ const Nav = () => {
       <NavLink className={`px-4 py-2 bg-gray-900 rounded-full ${(e) => e.isActive ? "text-red-400" : ""}`} to="/create-recipe">
         Create Recipe
       </NavLink>
+      <NavLink className={`px-4 py-2 bg-gray-900 rounded-full ${(e) => e.isActive ? "text-red-400" : ""}`} to="/fav">
+        Favourite
+      </NavLink>
     </div>
   );
 };
