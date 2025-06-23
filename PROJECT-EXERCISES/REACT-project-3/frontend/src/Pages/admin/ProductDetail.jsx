@@ -1,9 +1,7 @@
 import { useForm } from "react-hook-form";
-import { nanoid } from "nanoid";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {
-  asyncCreateProducts,
   asyncDeleteProducts,
   asyncUpdateProducts,
   asyncLoadProducts,
@@ -12,18 +10,16 @@ import {
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { asyncUpdateUser } from "../../store/Actions/UserAction";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const products = useSelector((state) => state.products.data);
   const users = useSelector((state) => state.users.data);
-
   const product = products?.find((product) => product.id == id);
   console.log(products, users);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   useEffect(() => {
     dispatch(asyncLoadProducts());
   }, [dispatch]);
@@ -50,6 +46,34 @@ const ProductDetail = () => {
     dispatch(asyncDeleteProducts(id));
     navigate("/products");
   };
+  const addToCarHandler = (id) => {
+    // Check if users exists and has a cart property
+    if (!users || !users.cart) {
+      console.error("Users or users.cart is undefined");
+      return;
+    }
+    
+    // Create a deep copy of the users object with the cart
+    const copyUser = {...users, cart: Array.isArray(users.cart) ? [...users.cart] : []};
+    
+    // Find the existing item in the cart
+    const existingItemIndex = copyUser.cart.findIndex(c => c.productid === id);
+    
+    if(existingItemIndex === -1){
+      copyUser.cart.push({
+        productid: id,
+        quantity: 1
+      });
+    }
+    else{
+      copyUser.cart[existingItemIndex] = {
+        productid: id,
+        quantity: copyUser.cart[existingItemIndex].quantity + 1,
+      };
+    }
+    
+    dispatch(asyncUpdateUser(copyUser.id, copyUser));
+  }
 
   return product ? (
     <>
@@ -68,7 +92,9 @@ const ProductDetail = () => {
           <div className="p-3 mt-3 flex justify-between items-center">
             <h3>{product.price}</h3>
             <h3>{product.category}</h3>
-            <button>Add to Cart</button>
+            <button onClick={() => addToCarHandler(product.id)}>
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>

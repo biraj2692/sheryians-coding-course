@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
-import { nanoid } from "nanoid";
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { asyncLoginUser } from "../store/Actions/UserAction";
 import { useDispatch } from "react-redux";
 
@@ -15,9 +14,9 @@ const Login = () => {
 
  return (
     <form onSubmit={handleSubmit(loginHandler)} className="flex flex-col w-1/2">
-      <input type="text" className="mb-3 outline-0 border-b p-2 " placeholder="john1234" {...register("username")} />
-      <input type="password" className="mb-3 outline-0 border-b p-2 " placeholder="" {...register("password")} />
-      <input type="submit" className="mt-3 px-3 py-4 bg-blue-400 rounded"/>
+      <input type="email" className="mb-3 outline-0 border-b p-2 " placeholder="email@example.com" {...register("email")} />
+      <input type="password" className="mb-3 outline-0 border-b p-2 " placeholder="password" {...register("password")} />
+      <input type="submit" className="mt-3 px-3 py-4 bg-blue-400 rounded" value="Login"/>
       <p>Don't have an account</p>
       <Link to="/register"> Register Here </Link>
     </form>

@@ -17,6 +17,7 @@ const Navbar = () => {
           <NavLink to={"/admin/create-product"}>Create Product</NavLink>
           {/* <NavLink to={"/admin/user-profile"}>User Profile</NavLink> */}
           <NavLink to={"/admin/user-profile"}>Settings</NavLink>
+          <NavLink to={"/cart"}>Cart</NavLink>
             <span className="ml-4">Welcome, {user.name}</span>
           </>
         ) : (

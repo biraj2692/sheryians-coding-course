@@ -10,6 +10,7 @@ export const asyncLoginUser = (user) => async (dispatch, getState) => {
      if (data && data.length > 0) {
       localStorage.setItem("user", JSON.stringify(data[0]));
       dispatch(loadUser(data[0]));
+      dispatch(asyncCurrentUser()); 
     } else {
       console.error("No user found with those credentials");
     }
@@ -29,9 +30,7 @@ export const asyncLogoutUser = () => async (dispatch, getState) => {
 export const asyncCurrentUser = () => async (dispatch, getState) => {
   try {
    const user =JSON.parse(localStorage.getItem("user"));
-   if(user) dispatch(loadUser(user))
-   else console.log("User Not Found");
-   
+   if(user) dispatch(loadUser(user))   
   } catch (error) {
     console.error(error);
   }
